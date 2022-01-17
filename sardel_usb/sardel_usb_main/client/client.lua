@@ -47,7 +47,6 @@ AddEventHandler('sard_usb:start', function(playerId)
                 npc6 = location.Npc6
 
                 createBlip(location.Pos)
-                print(loc)
                 FreezeEntityPosition(PlayerPedId(), false)
                 togiveitem(location.Pos, take, flash)
                 deleteBlip(location.Pos)
