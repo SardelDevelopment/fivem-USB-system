@@ -13,7 +13,7 @@ es_extended 1.2, final, legacy  !! 1.1 not tested !!
 utk_fingerprint: https://github.com/utkuali/Finger-Print-Hacking-Game
 
 
---SETUP--
+**--SETUP--**
 
 Drag sardel_usb to resources
 
