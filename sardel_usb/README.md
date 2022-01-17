@@ -14,6 +14,7 @@ utk_fingerprint: https://github.com/utkuali/Finger-Print-Hacking-Game
 
 
 --SETUP--
+
 Drag sardel_usb to resources
 
 Import sardel_usb.sql in your database
