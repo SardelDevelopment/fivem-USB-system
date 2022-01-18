@@ -16,10 +16,6 @@ end
 Config.msghack = "Hacking!"
 Config.msgsteal = "Stealing!"
 
-
---debuging
-Config.debuging = false -- don't touch
-
 --blips
 Config.deletetoblip = 15 --distance from blip to delete
 Config.Blip = {Sprite = 1, Colour = 76, Scale = 0.75} --blip
