@@ -1,9 +1,7 @@
 ESX = nil
 
 TriggerEvent(Config.Serverrigger, function(obj) ESX = obj end)
-if Config.debuging then
-    print("server start")
-end
+
 ESX.RegisterUsableItem('usb_blue', function(playerId)
     items = 'usb_blue'
     local xPlayer = ESX.GetPlayerFromId(playerId)
