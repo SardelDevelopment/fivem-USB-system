@@ -29,7 +29,9 @@ AddEventHandler('sard_usb:start', function(playerId)
     if item == 'usb_blue' then 
         flash = 'usb_blue'
         Playdeadanim = true
-        exports['pogressBar']:drawBar(5000, 'Hacking!')
+        time = 5000
+        msg = Config.msghack
+        progress(time, msg)
         FreezeEntityPosition(PlayerPedId(), true)
         startAnim()
         Citizen.Wait(5000)
@@ -63,7 +65,9 @@ AddEventHandler('sard_usb:start', function(playerId)
     elseif item == 'usb_red' then
         flash = 'usb_red'
         Playdeadanim = true
-        exports['pogressBar']:drawBar(5000, 'Hacking!')
+        time = 5000
+        msg = Config.msghack
+        progress(time, msg)
         FreezeEntityPosition(PlayerPedId(), true)
         startAnim()
         Citizen.Wait(5000)
@@ -98,7 +102,9 @@ AddEventHandler('sard_usb:start', function(playerId)
     elseif item == 'usb_gold' then
         flash = 'usb_gold'
         Playdeadanim = true
-        exports['pogressBar']:drawBar(5000, 'Hacking!')
+        time = 5000
+        msg = Config.msghack
+        progress(time, msg)
         FreezeEntityPosition(PlayerPedId(), true)
         startAnim()
         Citizen.Wait(5000)
@@ -133,7 +139,9 @@ AddEventHandler('sard_usb:start', function(playerId)
     elseif item == 'usb_diamond' then
         flash = 'usb_diamond'
         Playdeadanim = true
-        exports['pogressBar']:drawBar(5000, 'Hacking!')
+        time = 5000
+        msg = Config.msghack
+        progress(time, msg)
         FreezeEntityPosition(PlayerPedId(), true)
         startAnim()
         Citizen.Wait(5000)
@@ -249,9 +257,12 @@ function togiveitem(pos, take, flash)
             if distan < Config.textdistan and take then
                 ShowFloatingHelpNotification(Config.msg, pos)
                 if IsControlJustReleased(0, 38) and take then
-                    print(take)
-                    exports['pogressBar']:drawBar(2000, 'Stealing!')
+                    time = 2000
+                    msg = Config.msgsteal
+                    progress(time, msg)
+		    startAnim2()
                     Wait(2000)
+		    stopAnim2()
                     ESX.ShowNotification('Theft completed')
                     TriggerServerEvent('sard_usb:giveitem', flash)
                     take = false
@@ -259,4 +270,21 @@ function togiveitem(pos, take, flash)
             end
         end
     end)
+end
+
+function startAnim2()
+	Citizen.CreateThread(function()
+	  RequestAnimDict("anim@move_m@prisoner_cuffed")
+	  while not HasAnimDictLoaded("anim@move_m@prisoner_cuffed") do
+	    Citizen.Wait(0)
+	  end
+      FreezeEntityPosition(PlayerPedId(), true)
+		TaskPlayAnim(GetPlayerPed(-1), "anim@move_m@prisoner_cuffed", "wstop_r_0" ,8.0, -8.0, -1, 50, 0, false, false, false)
+	end)
+end
+
+
+function stopAnim2()
+	StopAnimTask(GetPlayerPed(-1), "anim@move_m@prisoner_cuffed", "wstop_r_0" ,8.0, -8.0, -1, 50, 0, false, false, false)
+    FreezeEntityPosition(PlayerPedId(), false)
 end
