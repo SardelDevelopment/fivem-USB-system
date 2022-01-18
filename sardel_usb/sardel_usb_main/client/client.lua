@@ -11,14 +11,6 @@ local levels = Config.Levels
 local lifes = Config.Lifes
 local time = Config.Time 
 
-
-if Config.debuging then
-    print(levels)
-    print(lifes)
-    print(time)
-    print("client start")
-end
-
 RegisterNetEvent('sard_usb:start')
 AddEventHandler('sard_usb:start', function(playerId)
     local item = playerId
