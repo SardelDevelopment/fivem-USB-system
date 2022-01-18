@@ -9,6 +9,13 @@ Config.Levels = 1 --minigame level min. 1 - 4 max
 Config.Lifes = 5 --minigame lifes min. 1 - 6 max
 Config.Time = 2 --minigame time min. 1 - 9 max
 
+--progressbar
+function progress(time, msg)
+    exports['pogressBar']:drawBar(time, msg)
+end
+Config.msghack = "Hacking!"
+Config.msgsteal = "Stealing!"
+
 
 --debuging
 Config.debuging = false -- don't touch
