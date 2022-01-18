@@ -248,7 +248,7 @@ function togiveitem(pos, take, flash)
             local floating = "srd_usb"
             if distan < Config.textdistan and take then
                 ShowFloatingHelpNotification(Config.msg, pos)
-                if IsControlJustReleased(0, 38) and take then
+                if IsControlJustReleased(0, 38) and take and distan < 5 then
                     time = 2000
                     msg = Config.msgsteal
                     progress(time, msg)
